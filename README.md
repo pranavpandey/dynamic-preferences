@@ -17,6 +17,10 @@ A library to manage shared preferences on Android 4.0 (API 14) and above devices
 
 - [Installation](https://github.com/pranavpandey/dynamic-preferences#installation)
 - [Usage](https://github.com/pranavpandey/dynamic-preferences#usage)
+    - [Initialize](https://github.com/pranavpandey/dynamic-preferences#initialize)
+    - [Save](https://github.com/pranavpandey/dynamic-preferences#save)
+    - [Load](https://github.com/pranavpandey/dynamic-preferences#load)
+    - [Delete](https://github.com/pranavpandey/dynamic-preferences#delete)
     - [Dependency](https://github.com/pranavpandey/dynamic-preferences#dependency)
 - [License](https://github.com/pranavpandey/dynamic-preferences#license)
 
@@ -37,9 +41,63 @@ dependencies {
 
 ## Usage
 
-> For complete reference, please read the [documentation](https://pranavpandey.github.io/dynamic-preferences).
+Please read below about the various supported operations.
 
----
+> For complete reference, please read the 
+[documentation](https://pranavpandey.github.io/dynamic-preferences).
+
+### Initialize
+
+`DynamicPreferences` must be initialized once before accessing its methods.
+
+```java
+// Initialize with application context.
+DynamicPreferences.initializeInstance(applicationContext);
+```
+
+After initializing, its various public methods can be accessed via getting the initialized 
+instance.
+
+### Save
+
+It supports the saving of `boolean`, `int`, `String` and `Set<String>` value types into the 
+shared preferences. 
+
+```java
+// Save a value in the default shared preferences.
+DynamicPreferences.getInstance().save(key, value);
+
+// Save a value in the supplied shared preferences.
+DynamicPreferences.getInstance().save(preferences, key, value);
+```
+
+### Load
+
+It supports the retrieval of `boolean`, `int`, `String` and `Set<String>` value types from the 
+shared preferences. 
+
+```java
+// Retrieve a value from the default shared preferences.
+DynamicPreferences.getInstance().load(key, defaultValue);
+
+// Retrieve a value from the supplied shared preferences.
+DynamicPreferences.getInstance().save(preferences, key, defaultValue);
+```
+
+### Delete
+
+It supports the deletion of a particular `key` or a complete shared preferences.
+
+```java
+// Remove a key from the default shared preferences.
+DynamicPreferences.getInstance().delete(key);
+
+// Remove a key from the supplied shared preferences.
+DynamicPreferences.getInstance().delete(preferences, key);
+
+// Delete a shared preferences.
+DynamicPreferences.getInstance().deleteSharedPreference(preferences);
+```
 
 ### Dependency
 
