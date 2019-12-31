@@ -18,11 +18,11 @@ package com.pranavpandey.android.dynamic.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.preference.PreferenceManager;
 
 import java.util.Set;
 
