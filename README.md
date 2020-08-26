@@ -8,8 +8,7 @@
 
 A library to manage shared preferences on Android 4.0 (API 14) and above devices.
 
-> It uses [AndroidX](https://developer.android.com/jetpack/androidx/) so, first
-[migrate](https://developer.android.com/jetpack/androidx/migrate) your project to AndroidX.
+> It uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your project to AndroidX.
 
 ---
 
@@ -33,7 +32,7 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 ```groovy
 dependencies {
     // For AndroidX enabled projects.
-    implementation 'com.pranavpandey.android:dynamic-preferences:1.2.0'
+    implementation 'com.pranavpandey.android:dynamic-preferences:1.2.1'
 }
 ```
 
@@ -43,8 +42,7 @@ dependencies {
 
 Please read below about the various supported operations.
 
-> For complete reference, please read the 
-[documentation](https://pranavpandey.github.io/dynamic-preferences).
+> For complete reference, please read the [documentation][documentation].
 
 ### Initialize
 
@@ -131,3 +129,8 @@ Pranav Pandey
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+
+[androidx]: https://developer.android.com/jetpack/androidx
+[androidx-migrate]: https://developer.android.com/jetpack/androidx/migrate
+[documentation]: https://pranavpandey.github.io/dynamic-preferences
