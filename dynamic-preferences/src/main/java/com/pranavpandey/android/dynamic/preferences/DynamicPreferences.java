@@ -75,11 +75,12 @@ public class DynamicPreferences {
     }
 
     /**
-     * Get instance to access public methods. Must be called before accessing the methods.
+     * Retrieves the singleton instance of {@link DynamicPreferences}.
+     * <p>Must be called before accessing the public methods.
      *
-     * @return The singleton instance of this class.
+     * @return The singleton instance of {@link DynamicPreferences}.
      */
-    public static synchronized DynamicPreferences getInstance() {
+    public static synchronized @NonNull DynamicPreferences getInstance() {
         if (sInstance == null) {
             throw new IllegalStateException(DynamicPreferences.class.getSimpleName() +
                     " is not initialized, call initializeInstance(..) method first.");
@@ -107,7 +108,11 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public void save(@NonNull String preferences, @NonNull String key, boolean value) {
+    public void save(@Nullable String preferences, @Nullable String key, boolean value) {
+        if (preferences == null || key == null) {
+            return;
+        }
+        
         mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
                 .edit().putBoolean(key, value).apply();
     }
@@ -121,7 +126,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public void save(@NonNull String key, boolean value) {
+    public void save(@Nullable String key, boolean value) {
+        if (key == null) {
+            return;
+        }
+        
         PreferenceManager.getDefaultSharedPreferences(mContext)
                 .edit().putBoolean(key, value).apply();
     }
@@ -136,7 +145,11 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public void save(@NonNull String preferences, @NonNull String key, int value) {
+    public void save(@Nullable String preferences, @Nullable String key, int value) {
+        if (preferences == null || key == null) {
+            return;
+        }
+        
         mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
                 .edit().putInt(key, value).apply();
     }
@@ -150,7 +163,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public void save(@NonNull String key, int value) {
+    public void save(@Nullable String key, int value) {
+        if (key == null) {
+            return;
+        }
+        
         PreferenceManager.getDefaultSharedPreferences(mContext)
                 .edit().putInt(key, value).apply();
     }
@@ -165,7 +182,11 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public void save(@NonNull String preferences, @NonNull String key, float value) {
+    public void save(@Nullable String preferences, @Nullable String key, float value) {
+        if (preferences == null || key == null) {
+            return;
+        }
+        
         mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
                 .edit().putFloat(key, value).apply();
     }
@@ -179,7 +200,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public void save(@NonNull String key, float value) {
+    public void save(@Nullable String key, float value) {
+        if (key == null) {
+            return;
+        }
+        
         PreferenceManager.getDefaultSharedPreferences(mContext)
                 .edit().putFloat(key, value).apply();
     }
@@ -194,8 +219,11 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public void save(@NonNull String preferences,
-            @NonNull String key, @Nullable String value) {
+    public void save(@Nullable String preferences, @Nullable String key, @Nullable String value) {
+        if (preferences == null || key == null) {
+            return;
+        }
+        
         mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
                 .edit().putString(key, value).apply();
     }
@@ -209,7 +237,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public void save(@NonNull String key, @Nullable String value) {
+    public void save(@Nullable String key, @Nullable String value) {
+        if (key == null) {
+            return;
+        }
+        
         PreferenceManager.getDefaultSharedPreferences(mContext)
                 .edit().putString(key, value).apply();
     }
@@ -224,8 +256,12 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public void saveStringSet(@NonNull String preferences,
-            @NonNull String key, @Nullable Set<String> value) {
+    public void saveStringSet(@Nullable String preferences, 
+            @Nullable String key, @Nullable Set<String> value) {
+        if (preferences == null || key == null) {
+            return;
+        }
+        
         mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
                 .edit().putStringSet(key, value).apply();
     }
@@ -239,7 +275,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public void saveStringSet(@NonNull String key, @Nullable Set<String> value) {
+    public void saveStringSet(@Nullable String key, @Nullable Set<String> value) {
+        if (key == null) {
+            return;
+        }
+        
         PreferenceManager.getDefaultSharedPreferences(mContext)
                 .edit().putStringSet(key, value).apply();
     }
@@ -257,7 +297,11 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public boolean load(@NonNull String preferences, @NonNull String key, boolean value) {
+    public boolean load(@Nullable String preferences, @Nullable String key, boolean value) {
+        if (preferences == null || key == null) {
+            return value;
+        }
+        
         return mContext.getSharedPreferences(preferences,
                 Context.MODE_PRIVATE).getBoolean(key, value);
     }
@@ -274,7 +318,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public boolean load(@NonNull String key, boolean value) {
+    public boolean load(@Nullable String key, boolean value) {
+        if (key == null) {
+            return value;
+        }
+        
         return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(key, value);
     }
 
@@ -291,7 +339,11 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public int load(@NonNull String preferences, @NonNull String key, int value) {
+    public int load(@Nullable String preferences, @Nullable String key, int value) {
+        if (preferences == null || key == null) {
+            return value;
+        }
+        
         return mContext.getSharedPreferences(preferences,
                 Context.MODE_PRIVATE).getInt(key, value);
     }
@@ -308,7 +360,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public int load(@NonNull String key, int value) {
+    public int load(@Nullable String key, int value) {
+        if (key == null) {
+            return value;
+        }
+
         return PreferenceManager.getDefaultSharedPreferences(mContext).getInt(key, value);
     }
 
@@ -325,7 +381,11 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public float load(@NonNull String preferences, @NonNull String key, float value) {
+    public float load(@Nullable String preferences, @Nullable String key, float value) {
+        if (preferences == null || key == null) {
+            return value;
+        }
+        
         return mContext.getSharedPreferences(preferences,
                 Context.MODE_PRIVATE).getFloat(key, value);
     }
@@ -342,7 +402,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public float load(@NonNull String key, float value) {
+    public float load(@Nullable String key, float value) {
+        if (key == null) {
+            return value;
+        }
+
         return PreferenceManager.getDefaultSharedPreferences(mContext).getFloat(key, value);
     }
 
@@ -359,8 +423,12 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public @Nullable String load(@NonNull String preferences,
-            @NonNull String key, @Nullable String value) {
+    public @Nullable String load(@Nullable String preferences, 
+            @Nullable String key, @Nullable String value) {
+        if (preferences == null || key == null) {
+            return value;
+        }
+        
         return mContext.getSharedPreferences(preferences,
                 Context.MODE_PRIVATE).getString(key, value);
     }
@@ -377,7 +445,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public @Nullable String load(@NonNull String key, @Nullable String value) {
+    public @Nullable String load(@Nullable String key, @Nullable String value) {
+        if (key == null) {
+            return value;
+        }
+
         return PreferenceManager.getDefaultSharedPreferences(mContext).getString(key, value);
     }
 
@@ -394,8 +466,12 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public @Nullable Set<String> loadStringSet(@NonNull String preferences,
-            @NonNull String key, @Nullable Set<String> value) {
+    public @Nullable Set<String> loadStringSet(@Nullable String preferences,
+            @Nullable String key, @Nullable Set<String> value) {
+        if (preferences == null || key == null) {
+            return value;
+        }
+        
         return mContext.getSharedPreferences(preferences,
                 Context.MODE_PRIVATE).getStringSet(key, value);
     }
@@ -412,7 +488,11 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public @Nullable Set<String> loadStringSet(@NonNull String key, @Nullable Set<String> value) {
+    public @Nullable Set<String> loadStringSet(@Nullable String key, @Nullable Set<String> value) {
+        if (key == null) {
+            return value;
+        }
+
         return PreferenceManager.getDefaultSharedPreferences(mContext).getStringSet(key, value);
     }
 
@@ -424,9 +504,16 @@ public class DynamicPreferences {
      *
      * @see Context#getSharedPreferences(String, int)
      */
-    public void delete(@NonNull String preferences, @NonNull String key) {
-        mContext.getSharedPreferences(preferences,
-                Context.MODE_PRIVATE).edit().remove(key).apply();
+    public void delete(@Nullable String preferences, @Nullable String key) {
+        if (preferences == null || key == null) {
+            return;
+        }
+
+        try {
+            mContext.getSharedPreferences(preferences,
+                    Context.MODE_PRIVATE).edit().remove(key).apply();
+        } catch (Exception ignored) {
+        }
     }
 
     /**
@@ -436,18 +523,26 @@ public class DynamicPreferences {
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public void delete(@NonNull String key) {
-        PreferenceManager.getDefaultSharedPreferences(mContext).edit().remove(key).apply();
+    public void delete(@Nullable String key) {
+        if (key == null) {
+            return;
+        }
+
+        try {
+            PreferenceManager.getDefaultSharedPreferences(mContext).edit().remove(key).apply();
+        } catch (Exception ignored) {
+        }
     }
 
     /**
-     * Get default shared preferences name to perform other operations like backup and restore.
+     * Get the default shared preferences name to perform other operations like backup
+     * and restore.
      *
      * @return The default shared preferences name.
      *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public String getDefaultSharedPreferencesName() {
+    public @NonNull String getDefaultSharedPreferencesName() {
         return mContext.getPackageName() + "_preferences";
     }
 
@@ -456,7 +551,35 @@ public class DynamicPreferences {
      *
      * @param preferences The preferences to be deleted.
      */
-    public void deleteSharedPreferences(@NonNull String preferences) {
-        mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE).edit().clear().apply();
+    public void deleteSharedPreferences(@Nullable String preferences) {
+        if (preferences == null) {
+            return;
+        }
+
+        try {
+            mContext.getSharedPreferences(preferences,
+                    Context.MODE_PRIVATE).edit().clear().apply();
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
+     * Delete the default shared preferences.
+     */
+    public void deleteSharedPreferences() {
+        try {
+            PreferenceManager.getDefaultSharedPreferences(mContext).edit().clear().apply();
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
+     * Checks whether the key is {@code null} as listener returns {@code null} key when
+     * it is removed (or cleared) since API 30.
+     *
+     * @return {@code true} if the key is {@code null}.
+     */
+    public static boolean isNullKey(@Nullable String key) {
+        return key == null;
     }
 }
