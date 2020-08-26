@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":9,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":9,"i8":9,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -165,63 +165,77 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#deleteSharedPreferences--">deleteSharedPreferences</a></span>()</code>
+<div class="block">Delete the default shared preferences.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#deleteSharedPreferences-java.lang.String-">deleteSharedPreferences</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences)</code>
 <div class="block">Delete a shared preferences.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="https://developer.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content">Context</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#getContext--">getContext</a></span>()</code>
 <div class="block">Returns the context used by this instance.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#getDefaultSharedPreferencesName--">getDefaultSharedPreferencesName</a></span>()</code>
-<div class="block">Get default shared preferences name to perform other operations like backup and restore.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html" title="class in com.pranavpandey.android.dynamic.preferences">DynamicPreferences</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#getInstance--">getInstance</a></span>()</code>
-<div class="block">Get instance to access public methods.</div>
+<div class="block">Get the default shared preferences name to perform other operations like backup
+ and restore.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html" title="class in com.pranavpandey.android.dynamic.preferences">DynamicPreferences</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#getInstance--">getInstance</a></span>()</code>
+<div class="block">Retrieves the singleton instance of <a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html" title="class in com.pranavpandey.android.dynamic.preferences"><code>DynamicPreferences</code></a>.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#initializeInstance-android.content.Context-">initializeInstance</a></span>(<a href="https://developer.android.com/reference/android/content/Context.html?is-external=true" title="class or interface in android.content">Context</a>&nbsp;context)</code>
 <div class="block">Initialize preferences when application starts.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#isNullKey-java.lang.String-">isNullKey</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</code>
+<div class="block">Checks whether the key is <code>null</code> as listener returns <code>null</code> key when
+ it is removed (or cleared) since API 30.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-boolean-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     boolean&nbsp;value)</code>
 <div class="block">Retrieve a boolean value from the default preferences.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-float-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     float&nbsp;value)</code>
 <div class="block">Retrieve an float value from the default preferences.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-int-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     int&nbsp;value)</code>
 <div class="block">Retrieve an integer value from the default preferences.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-java.lang.String-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block">Retrieve a string value from the default preferences.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-java.lang.String-boolean-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -229,7 +243,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <div class="block">Retrieve a boolean value from the supplied preferences.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-java.lang.String-float-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -237,7 +251,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <div class="block">Retrieve a float value from the supplied preferences.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-java.lang.String-int-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -245,7 +259,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <div class="block">Retrieve an integer value from the supplied preferences.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#load-java.lang.String-java.lang.String-java.lang.String-">load</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -253,14 +267,14 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <div class="block">Retrieve a string value from the supplied preferences.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="https://developer.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#loadStringSet-java.lang.String-java.util.Set-">loadStringSet</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
              <a href="https://developer.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;value)</code>
 <div class="block">Retrieve a string set from the default preferences.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="https://developer.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#loadStringSet-java.lang.String-java.lang.String-java.util.Set-">loadStringSet</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
              <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -268,7 +282,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <div class="block">Retrieve a string set from the supplied preferences.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-boolean-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     boolean&nbsp;value)</code>
@@ -276,7 +290,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-float-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     float&nbsp;value)</code>
@@ -284,7 +298,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-int-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     int&nbsp;value)</code>
@@ -292,7 +306,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-java.lang.String-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
@@ -300,7 +314,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-java.lang.String-boolean-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -309,7 +323,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-java.lang.String-float-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -318,7 +332,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-java.lang.String-int-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -327,7 +341,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#save-java.lang.String-java.lang.String-java.lang.String-">save</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
     <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -336,7 +350,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#saveStringSet-java.lang.String-java.util.Set-">saveStringSet</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
              <a href="https://developer.android.com/reference/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;value)</code>
@@ -344,7 +358,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
  <code>SharedPreferences.Editor#apply()</code> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html#saveStringSet-java.lang.String-java.lang.String-java.util.Set-">saveStringSet</a></span>(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences,
              <a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
@@ -416,10 +430,11 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <li class="blockList">
 <h4>getInstance</h4>
 <pre>public static&nbsp;<a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html" title="class in com.pranavpandey.android.dynamic.preferences">DynamicPreferences</a>&nbsp;getInstance()</pre>
-<div class="block">Get instance to access public methods. Must be called before accessing the methods.</div>
+<div class="block">Retrieves the singleton instance of <a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html" title="class in com.pranavpandey.android.dynamic.preferences"><code>DynamicPreferences</code></a>.
+ <p>Must be called before accessing the public methods.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The singleton instance of this class.</dd>
+<dd>The singleton instance of <a href="../../../../../com/pranavpandey/android/dynamic/preferences/DynamicPreferences.html" title="class in com.pranavpandey.android.dynamic.preferences"><code>DynamicPreferences</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -908,7 +923,8 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <li class="blockList">
 <h4>getDefaultSharedPreferencesName</h4>
 <pre>public&nbsp;<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getDefaultSharedPreferencesName()</pre>
-<div class="block">Get default shared preferences name to perform other operations like backup and restore.</div>
+<div class="block">Get the default shared preferences name to perform other operations like backup
+ and restore.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The default shared preferences name.</dd>
@@ -920,7 +936,7 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <a name="deleteSharedPreferences-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>deleteSharedPreferences</h4>
 <pre>public&nbsp;void&nbsp;deleteSharedPreferences(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;preferences)</pre>
@@ -928,6 +944,31 @@ extends <a href="https://developer.android.com/reference/java/lang/Object.html?i
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>preferences</code> - The preferences to be deleted.</dd>
+</dl>
+</li>
+</ul>
+<a name="deleteSharedPreferences--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deleteSharedPreferences</h4>
+<pre>public&nbsp;void&nbsp;deleteSharedPreferences()</pre>
+<div class="block">Delete the default shared preferences.</div>
+</li>
+</ul>
+<a name="isNullKey-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isNullKey</h4>
+<pre>public static&nbsp;boolean&nbsp;isNullKey(<a href="https://developer.android.com/reference/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</pre>
+<div class="block">Checks whether the key is <code>null</code> as listener returns <code>null</code> key when
+ it is removed (or cleared) since API 30.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if the key is <code>null</code>.</dd>
 </dl>
 </li>
 </ul>
