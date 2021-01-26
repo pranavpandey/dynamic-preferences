@@ -577,6 +577,8 @@ public class DynamicPreferences {
      * Checks whether the key is {@code null} as listener returns {@code null} key when
      * it is removed (or cleared) since API 30.
      *
+     * @param key The key to be checked.
+     *
      * @return {@code true} if the key is {@code null}.
      */
     public static boolean isNullKey(@Nullable String key) {
