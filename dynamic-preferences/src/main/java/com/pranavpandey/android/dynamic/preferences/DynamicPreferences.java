@@ -47,7 +47,7 @@ public class DynamicPreferences {
      * <p>Use {@link #initializeInstance(Context)} instead.
      */
     @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-    protected DynamicPreferences() { }
+    private DynamicPreferences() { }
 
     /**
      * Constructor to initialize an object of this class.
@@ -66,7 +66,7 @@ public class DynamicPreferences {
      */
     public static synchronized void initializeInstance(@Nullable Context context) {
         if (context == null) {
-            throw new NullPointerException("Context should not be null");
+            throw new NullPointerException("Context should not be null.");
         }
 
         if (sInstance == null) {
@@ -94,444 +94,59 @@ public class DynamicPreferences {
      *
      * @return The context to retrieve the resources.
      */
-    public Context getContext() {
+    public @NonNull Context getContext() {
         return mContext;
     }
 
     /**
-     * Set a boolean value in the supplied preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     * Returns the {@link SharedPreferences} object for the supplied name.
+     * <p>Use {@code null} to get the default shared preferences object.
      *
-     * @param preferences The preferences name to store the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
+     * @param preferences The name of the shared preferences.
      *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public void save(@Nullable String preferences, @Nullable String key, boolean value) {
-        if (preferences == null || key == null) {
-            return;
-        }
-        
-        mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
-                .edit().putBoolean(key, value).apply();
-    }
-
-    /**
-     * Set a boolean value in the default preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public void save(@Nullable String key, boolean value) {
-        if (key == null) {
-            return;
-        }
-        
-        PreferenceManager.getDefaultSharedPreferences(mContext)
-                .edit().putBoolean(key, value).apply();
-    }
-
-    /**
-     * Set a integer value in the supplied preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param preferences The preferences name to store the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
+     * @return The shared preferences object.
      *
      * @see Context#getSharedPreferences(String, int)
-     */
-    public void save(@Nullable String preferences, @Nullable String key, int value) {
-        if (preferences == null || key == null) {
-            return;
-        }
-        
-        mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
-                .edit().putInt(key, value).apply();
-    }
-
-    /**
-     * Set an integer value in the default preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
      * @see PreferenceManager#getDefaultSharedPreferences(Context)
      */
-    public void save(@Nullable String key, int value) {
-        if (key == null) {
-            return;
+    public @NonNull SharedPreferences getSharedPreferences(@Nullable String preferences) {
+        if (preferences != null) {
+            return getContext().getSharedPreferences(preferences, Context.MODE_PRIVATE);
         }
-        
-        PreferenceManager.getDefaultSharedPreferences(mContext)
-                .edit().putInt(key, value).apply();
+
+        return PreferenceManager.getDefaultSharedPreferences(getContext());
     }
 
     /**
-     * Set a float value in the supplied preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     * Remove a key from the supplied shared preferences.
      *
-     * @param preferences The preferences name to store the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public void save(@Nullable String preferences, @Nullable String key, float value) {
-        if (preferences == null || key == null) {
-            return;
-        }
-        
-        mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
-                .edit().putFloat(key, value).apply();
-    }
-    
-    /**
-     * Set a float value in the default preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public void save(@Nullable String key, float value) {
-        if (key == null) {
-            return;
-        }
-        
-        PreferenceManager.getDefaultSharedPreferences(mContext)
-                .edit().putFloat(key, value).apply();
-    }
-
-    /**
-     * Set a string value in the supplied preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param preferences The preferences name to store the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public void save(@Nullable String preferences, @Nullable String key, @Nullable String value) {
-        if (preferences == null || key == null) {
-            return;
-        }
-        
-        mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
-                .edit().putString(key, value).apply();
-    }
-
-    /**
-     * Set a string value in the default preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public void save(@Nullable String key, @Nullable String value) {
-        if (key == null) {
-            return;
-        }
-        
-        PreferenceManager.getDefaultSharedPreferences(mContext)
-                .edit().putString(key, value).apply();
-    }
-
-    /**
-     * Set a string string in the supplied preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param preferences The preferences name to store the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public void saveStringSet(@Nullable String preferences, 
-            @Nullable String key, @Nullable Set<String> value) {
-        if (preferences == null || key == null) {
-            return;
-        }
-        
-        mContext.getSharedPreferences(preferences, Context.MODE_PRIVATE)
-                .edit().putStringSet(key, value).apply();
-    }
-
-    /**
-     * Set a string set in the default preferences editor and call
-     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
-     *
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public void saveStringSet(@Nullable String key, @Nullable Set<String> value) {
-        if (key == null) {
-            return;
-        }
-        
-        PreferenceManager.getDefaultSharedPreferences(mContext)
-                .edit().putStringSet(key, value).apply();
-    }
-
-    /**
-     * Retrieve a boolean value from the supplied preferences.
-     *
-     * @param preferences The preferences name to find the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a boolean.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public boolean load(@Nullable String preferences, @Nullable String key, boolean value) {
-        if (preferences == null || key == null) {
-            return value;
-        }
-        
-        return mContext.getSharedPreferences(preferences,
-                Context.MODE_PRIVATE).getBoolean(key, value);
-    }
-
-    /**
-     * Retrieve a boolean value from the default preferences.
-     *
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a boolean.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public boolean load(@Nullable String key, boolean value) {
-        if (key == null) {
-            return value;
-        }
-        
-        return PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean(key, value);
-    }
-
-    /**
-     * Retrieve an integer value from the supplied preferences.
-     *
-     * @param preferences The preferences name to find the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not an integer.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public int load(@Nullable String preferences, @Nullable String key, int value) {
-        if (preferences == null || key == null) {
-            return value;
-        }
-        
-        return mContext.getSharedPreferences(preferences,
-                Context.MODE_PRIVATE).getInt(key, value);
-    }
-
-    /**
-     * Retrieve an integer value from the default preferences.
-     *
-     * @param key The preference key to retrieve.
-     * @param value Value to return if this preference does not exist.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not an integer.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public int load(@Nullable String key, int value) {
-        if (key == null) {
-            return value;
-        }
-
-        return PreferenceManager.getDefaultSharedPreferences(mContext).getInt(key, value);
-    }
-
-    /**
-     * Retrieve a float value from the supplied preferences.
-     *
-     * @param preferences The preferences name to find the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a float.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public float load(@Nullable String preferences, @Nullable String key, float value) {
-        if (preferences == null || key == null) {
-            return value;
-        }
-        
-        return mContext.getSharedPreferences(preferences,
-                Context.MODE_PRIVATE).getFloat(key, value);
-    }
-
-    /**
-     * Retrieve an float value from the default preferences.
-     *
-     * @param key The preference key to retrieve.
-     * @param value Value to return if this preference does not exist.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a float.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public float load(@Nullable String key, float value) {
-        if (key == null) {
-            return value;
-        }
-
-        return PreferenceManager.getDefaultSharedPreferences(mContext).getFloat(key, value);
-    }
-
-    /**
-     * Retrieve a string value from the supplied preferences.
-     *
-     * @param preferences The preferences name to find the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a string.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public @Nullable String load(@Nullable String preferences, 
-            @Nullable String key, @Nullable String value) {
-        if (preferences == null || key == null) {
-            return value;
-        }
-        
-        return mContext.getSharedPreferences(preferences,
-                Context.MODE_PRIVATE).getString(key, value);
-    }
-
-    /**
-     * Retrieve a string value from the default preferences.
-     *
-     * @param key The preference key to retrieve.
-     * @param value Value to return if this preference does not exist.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a string.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public @Nullable String load(@Nullable String key, @Nullable String value) {
-        if (key == null) {
-            return value;
-        }
-
-        return PreferenceManager.getDefaultSharedPreferences(mContext).getString(key, value);
-    }
-
-    /**
-     * Retrieve a string set from the supplied preferences.
-     *
-     * @param preferences The preferences name to find the key.
-     * @param key The preference key to modify.
-     * @param value The value for the preference.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a string.
-     *
-     * @see Context#getSharedPreferences(String, int)
-     */
-    public @Nullable Set<String> loadStringSet(@Nullable String preferences,
-            @Nullable String key, @Nullable Set<String> value) {
-        if (preferences == null || key == null) {
-            return value;
-        }
-        
-        return mContext.getSharedPreferences(preferences,
-                Context.MODE_PRIVATE).getStringSet(key, value);
-    }
-
-    /**
-     * Retrieve a string set from the default preferences.
-     *
-     * @param key The preference key to retrieve.
-     * @param value Value to return if this preference does not exist.
-     *
-     * @return Returns the preference value if it exists, or the default value.
-     *         <p>Throws {@link ClassCastException} if there is a preference with this name
-     *         that is not a string.
-     *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
-     */
-    public @Nullable Set<String> loadStringSet(@Nullable String key, @Nullable Set<String> value) {
-        if (key == null) {
-            return value;
-        }
-
-        return PreferenceManager.getDefaultSharedPreferences(mContext).getStringSet(key, value);
-    }
-
-    /**
-     * Remove a key from the supplied preferences.
-     *
-     * @param preferences The preferences name to remove the key.
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
      * @param key The preference key to remove.
      *
-     * @see Context#getSharedPreferences(String, int)
+     * @see #getSharedPreferences(String)
      */
     public void delete(@Nullable String preferences, @Nullable String key) {
-        if (preferences == null || key == null) {
+        if (key == null) {
             return;
         }
 
         try {
-            mContext.getSharedPreferences(preferences,
+            getContext().getSharedPreferences(preferences,
                     Context.MODE_PRIVATE).edit().remove(key).apply();
         } catch (Exception ignored) {
         }
     }
 
     /**
-     * Remove a key from the default preferences.
+     * Remove a key from the default shared preferences.
      *
      * @param key The preference key to remove.
      *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
+     * @see #getSharedPreferences(String)
      */
     public void delete(@Nullable String key) {
-        if (key == null) {
-            return;
-        }
-
-        try {
-            PreferenceManager.getDefaultSharedPreferences(mContext).edit().remove(key).apply();
-        } catch (Exception ignored) {
-        }
+        delete(null, key);
     }
 
     /**
@@ -540,37 +155,34 @@ public class DynamicPreferences {
      *
      * @return The default shared preferences name.
      *
-     * @see PreferenceManager#getDefaultSharedPreferences(Context)
+     * @see #getSharedPreferences(String)
      */
     public @NonNull String getDefaultSharedPreferencesName() {
-        return mContext.getPackageName() + "_preferences";
+        return getContext().getPackageName() + "_preferences";
     }
 
     /**
      * Delete a shared preferences.
      *
      * @param preferences The preferences to be deleted.
+     *                    <p>Set {@code null} to delete the default shared preferences.
+     *
+     * @see #getSharedPreferences(String)
      */
     public void deleteSharedPreferences(@Nullable String preferences) {
-        if (preferences == null) {
-            return;
-        }
-
         try {
-            mContext.getSharedPreferences(preferences,
-                    Context.MODE_PRIVATE).edit().clear().apply();
+            getSharedPreferences(preferences).edit().clear().apply();
         } catch (Exception ignored) {
         }
     }
 
     /**
      * Delete the default shared preferences.
+     *
+     * @see #getSharedPreferences(String)
      */
     public void deleteSharedPreferences() {
-        try {
-            PreferenceManager.getDefaultSharedPreferences(mContext).edit().clear().apply();
-        } catch (Exception ignored) {
-        }
+        deleteSharedPreferences(null);
     }
 
     /**
@@ -583,5 +195,321 @@ public class DynamicPreferences {
      */
     public static boolean isNullKey(@Nullable String key) {
         return key == null;
+    }
+
+    /**
+     * Save a preference value in the supplied preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     * @param <T> The type of shared preference.
+     *
+     * @see #getSharedPreferences(String)
+     * @see SharedPreferences#getBoolean(String, boolean)
+     * @see SharedPreferences#getInt(String, int)
+     * @see SharedPreferences#getFloat(String, float)
+     * @see SharedPreferences#getLong(String, long)
+     * @see SharedPreferences#getString(String, String)
+     */
+    public <T> void save(@Nullable String preferences, @Nullable String key, @Nullable T value) {
+        if (key == null) {
+            return;
+        }
+
+        if (value instanceof Boolean) {
+            getSharedPreferences(preferences).edit().putBoolean(key, (Boolean) value).apply();
+        } else if (value instanceof Integer) {
+            getSharedPreferences(preferences).edit().putInt(key, (Integer) value).apply();
+        } else if (value instanceof Float) {
+            getSharedPreferences(preferences).edit().putFloat(key, (Float) value).apply();
+        } else if (value instanceof Long) {
+            getSharedPreferences(preferences).edit().putLong(key, (Long) value).apply();
+        } else if (value instanceof String) {
+            getSharedPreferences(preferences).edit().putString(key, (String) value).apply();
+        }
+    }
+
+    /**
+     * Save a preference value in the default shared preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     * @param <T> The type of the shared preference.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public <T> void save(@Nullable String key, @Nullable T value) {
+        if (key == null) {
+            return;
+        }
+        
+        save(null, key, value);
+    }
+
+    /**
+     * Save a {@literal Set<String>} in the supplied preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public void saveStringSet(@Nullable String preferences, 
+            @Nullable String key, @Nullable Set<String> value) {
+        if (key == null) {
+            return;
+        }
+        
+        getSharedPreferences(preferences).edit().putStringSet(key, value).apply();
+    }
+
+    /**
+     * Save a {@literal Set<String>} in the default preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public void saveStringSet(@Nullable String key, @Nullable Set<String> value) {
+        saveStringSet(null, key, value);
+    }
+
+    /**
+     * Retrieve a {@code boolean} preference value from the supplied shared preferences.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@code boolean}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public boolean load(@Nullable String preferences, @Nullable String key, boolean value) {
+        if (key == null) {
+            return value;
+        }
+
+        return getSharedPreferences(preferences).getBoolean(key, value);
+    }
+
+    /**
+     * Retrieve a {@code boolean} preference value from the supplied shared preferences.
+     *
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@code boolean}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public boolean load(@Nullable String key, boolean value) {
+        return load(null, key, value);
+    }
+
+    /**
+     * Retrieve an {@code integer} preference value from the supplied shared preferences.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not an {@code integer}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public int load(@Nullable String preferences, @Nullable String key, int value) {
+        if (key == null) {
+            return value;
+        }
+        
+        return getSharedPreferences(preferences).getInt(key, value);
+    }
+
+    /**
+     * Retrieve an {@code integer} preference value from the supplied shared preferences.
+     *
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not an {@code integer}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public int load(@Nullable String key, int value) {
+        return load(null, key, value);
+    }
+
+    /**
+     * Retrieve a {@code float} preference value from the supplied shared preferences.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@code float}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public float load(@Nullable String preferences, @Nullable String key, float value) {
+        if (key == null) {
+            return value;
+        }
+        
+        return getSharedPreferences(preferences).getFloat(key, value);
+    }
+
+    /**
+     * Retrieve a {@code float} preference value from the supplied shared preferences.
+     *
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@code float}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public float load(@Nullable String key, float value) {
+        return load(null, key, value);
+    }
+
+    /**
+     * Retrieve a {@code long} preference value from the supplied shared preferences.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@code long}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public float load(@Nullable String preferences, @Nullable String key, long value) {
+        if (key == null) {
+            return value;
+        }
+
+        return getSharedPreferences(preferences).getLong(key, value);
+    }
+
+    /**
+     * Retrieve a {@code long} preference value from the supplied shared preferences.
+     *
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@code long}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public float load(@Nullable String key, long value) {
+        return load(null, key, value);
+    }
+
+    /**
+     * Retrieve a {@link String} preference value from the supplied shared preferences.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@link String}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public @Nullable String load(@Nullable String preferences, 
+            @Nullable String key, @Nullable String value) {
+        if (key == null) {
+            return value;
+        }
+        
+        return getSharedPreferences(preferences).getString(key, value);
+    }
+
+    /**
+     * Retrieve a {@link String} preference value from the supplied shared preferences.
+     *
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@link String}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public @Nullable String load(@Nullable String key, @Nullable String value) {
+        return load(null, key, value);
+    }
+
+    /**
+     * Retrieve a {@literal Set<String>} preference value from the supplied shared preferences.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@literal Set<String>}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public @Nullable Set<String> loadStringSet(@Nullable String preferences,
+            @Nullable String key, @Nullable Set<String> value) {
+        if (key == null) {
+            return value;
+        }
+        
+        return getSharedPreferences(preferences).getStringSet(key, value);
+    }
+
+    /**
+     * Retrieve a {@literal Set<String>} preference value from the supplied shared preferences.
+     *
+     * @param key The preference key to be retrieved.
+     * @param value The default value for the preference.
+     *
+     * @return Returns the preference value if it exists, or the default value.
+     *         <p>Throws {@link ClassCastException} if there is a preference with this name
+     *         that is not a {@literal Set<String>}.
+     *
+     * @see #getSharedPreferences(String)
+     */
+    public @Nullable Set<String> loadStringSet(@Nullable String key, @Nullable Set<String> value) {
+        return loadStringSet(null, key, value);
     }
 }
