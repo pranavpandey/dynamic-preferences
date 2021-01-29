@@ -32,7 +32,7 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 ```groovy
 dependencies {
     // For AndroidX enabled projects.
-    implementation 'com.pranavpandey.android:dynamic-preferences:1.2.1'
+    implementation 'com.pranavpandey.android:dynamic-preferences:1.3.0'
 }
 ```
 
