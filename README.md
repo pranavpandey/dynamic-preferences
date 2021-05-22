@@ -4,9 +4,9 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-preferences.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-preferences)
-[![Download](https://api.bintray.com/packages/pranavpandey/android/dynamic-preferences/images/download.svg)](https://bintray.com/pranavpandey/android/dynamic-preferences/_latestVersion)
+[![Release](https://img.shields.io/maven-central/v/com.pranavpandey.android/dynamic-preferences)](https://search.maven.org/artifact/com.pranavpandey.android/dynamic-preferences)
 
-A library to manage shared preferences on Android 4.0 (API 14) and above devices.
+A library to manage shared preferences on Android 4.0 (API 14) and above.
 
 > It uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your project to AndroidX.
 
