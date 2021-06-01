@@ -16,6 +16,7 @@
 
 package com.pranavpandey.android.dynamic.preferences;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -28,13 +29,15 @@ import java.util.Set;
 
 /**
  * Helper class to handle shared preferences operations like saving or retrieving the values from
- * default shared preferences. It must be initialized once before accessing its methods.
+ * default shared preferences.
+ * <p>It must be initialized once before accessing its methods.
  */
 public class DynamicPreferences {
 
     /**
      * Singleton instance of {@link DynamicPreferences}.
      */
+    @SuppressLint("StaticFieldLeak")
     private static DynamicPreferences sInstance;
 
     /**
@@ -411,7 +414,7 @@ public class DynamicPreferences {
      *
      * @see #getSharedPreferences(String)
      */
-    public float load(@Nullable String preferences, @Nullable String key, long value) {
+    public long load(@Nullable String preferences, @Nullable String key, long value) {
         if (key == null) {
             return value;
         }
@@ -431,7 +434,7 @@ public class DynamicPreferences {
      *
      * @see #getSharedPreferences(String)
      */
-    public float load(@Nullable String key, long value) {
+    public long load(@Nullable String key, long value) {
         return load(null, key, value);
     }
 
