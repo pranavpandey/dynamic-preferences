@@ -9,6 +9,8 @@
 A library to manage shared preferences on Android 4.0 (API 14) and above.
 
 > It uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your project to AndroidX.
+<br/>Since v2.1.0, it is dependent on Java 8 due to the dependency on
+[Dynamic Utils](https://github.com/pranavpandey/dynamic-utils).
 
 ---
 
@@ -32,7 +34,7 @@ It can be installed by adding the following dependency to your `build.gradle` fi
 ```groovy
 dependencies {
     // For AndroidX enabled projects.
-    implementation 'com.pranavpandey.android:dynamic-preferences:2.0.0'
+    implementation 'com.pranavpandey.android:dynamic-preferences:2.1.0'
 }
 ```
 
