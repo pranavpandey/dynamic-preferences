@@ -86,7 +86,7 @@ public class DynamicPreferences {
     public static synchronized @NonNull DynamicPreferences getInstance() {
         if (sInstance == null) {
             throw new IllegalStateException(DynamicPreferences.class.getSimpleName() +
-                    " is not initialized, call initializeInstance(..) method first.");
+                    " is not initialized, call initializeInstance(...) method first.");
         }
 
         return sInstance;
