@@ -511,7 +511,7 @@ public class DynamicPreferences {
      *         <p>Throws {@link ClassCastException} if there is a preference with this name
      *         that is not a {@code long}.
      *
-     * @see ##load(String, String, long)
+     * @see #load(String, String, long)
      */
     public long load(@Nullable String key, long value) {
         return load(null, key, value);
