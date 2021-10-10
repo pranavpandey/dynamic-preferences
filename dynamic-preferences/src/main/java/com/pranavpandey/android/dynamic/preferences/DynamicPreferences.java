@@ -55,7 +55,7 @@ public class DynamicPreferences {
     /**
      * Constructor to initialize an object of this class.
      *
-     * @param context The context to retrieve the resources.
+     * @param context The context to be used.
      */
     private DynamicPreferences(@NonNull Context context) {
         this.mContext = context;
@@ -128,6 +128,7 @@ public class DynamicPreferences {
      * @param key The preference key to remove.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#remove(String)
      */
     public void delete(@Nullable String preferences, @Nullable String key) {
         if (key == null) {
@@ -135,8 +136,7 @@ public class DynamicPreferences {
         }
 
         try {
-            getContext().getSharedPreferences(preferences,
-                    Context.MODE_PRIVATE).edit().remove(key).apply();
+            getSharedPreferences(preferences).edit().remove(key).apply();
         } catch (Exception ignored) {
         }
     }
@@ -146,7 +146,7 @@ public class DynamicPreferences {
      *
      * @param key The preference key to remove.
      *
-     * @see #getSharedPreferences(String)
+     * @see #delete(String, String)
      */
     public void delete(@Nullable String key) {
         delete(null, key);
@@ -171,6 +171,7 @@ public class DynamicPreferences {
      *                    <p>Set {@code null} to delete the default shared preferences.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#clear()
      */
     public void deleteSharedPreferences(@Nullable String preferences) {
         try {
@@ -208,21 +209,26 @@ public class DynamicPreferences {
      *                    <p>Set {@code null} to use the default shared preferences.
      * @param key The preference key to be saved or modified.
      * @param value The value for the preference.
+     * @param removeOnNull {@code true} to remove key if the value is {@code null}.
      * @param <T> The type of shared preference.
      *
      * @see #getSharedPreferences(String)
-     * @see SharedPreferences#getBoolean(String, boolean)
-     * @see SharedPreferences#getInt(String, int)
-     * @see SharedPreferences#getFloat(String, float)
-     * @see SharedPreferences#getLong(String, long)
-     * @see SharedPreferences#getString(String, String)
+     * @see #delete(String)
+     * @see SharedPreferences.Editor#putBoolean(String, boolean)
+     * @see SharedPreferences.Editor#putInt(String, int)
+     * @see SharedPreferences.Editor#putFloat(String, float)
+     * @see SharedPreferences.Editor#putLong(String, long)
+     * @see SharedPreferences.Editor#putString(String, String)
      */
-    public <T> void save(@Nullable String preferences, @Nullable String key, @Nullable T value) {
+    public <T> void save(@Nullable String preferences, @Nullable String key,
+            @Nullable T value, boolean removeOnNull) {
         if (key == null) {
             return;
         }
 
-        if (value instanceof Boolean) {
+        if (removeOnNull && value == null) {
+            delete(preferences, key);
+        } else if (value instanceof Boolean) {
             getSharedPreferences(preferences).edit().putBoolean(key, (Boolean) value).apply();
         } else if (value instanceof Integer) {
             getSharedPreferences(preferences).edit().putInt(key, (Integer) value).apply();
@@ -230,9 +236,40 @@ public class DynamicPreferences {
             getSharedPreferences(preferences).edit().putFloat(key, (Float) value).apply();
         } else if (value instanceof Long) {
             getSharedPreferences(preferences).edit().putLong(key, (Long) value).apply();
-        } else if (value instanceof String) {
+        } else if (value == null || value instanceof String) {
             getSharedPreferences(preferences).edit().putString(key, (String) value).apply();
         }
+    }
+
+    /**
+     * Save a preference value in the supplied preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     * @param <T> The type of shared preference.
+     *
+     * @see #save(String, String, Object, boolean)
+     */
+    public <T> void save(@Nullable String preferences, @Nullable String key, @Nullable T value) {
+        save(preferences, key, value, false);
+    }
+
+    /**
+     * Save a preference value in the supplied preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     * @param removeOnNull {@code true} to remove key if the value is {@code null}.
+     * @param <T> The type of shared preference.
+     *
+     * @see #save(String, String, Object, boolean)
+     */
+    public <T> void save(@Nullable String key, @Nullable T value, boolean removeOnNull) {
+        save(null, key, value, removeOnNull);
     }
 
     /**
@@ -243,13 +280,13 @@ public class DynamicPreferences {
      * @param value The value for the preference.
      * @param <T> The type of the shared preference.
      *
-     * @see #getSharedPreferences(String)
+     * @see #save(String, String, Object)
      */
     public <T> void save(@Nullable String key, @Nullable T value) {
         if (key == null) {
             return;
         }
-        
+
         save(null, key, value);
     }
 
@@ -261,16 +298,54 @@ public class DynamicPreferences {
      *                    <p>Set {@code null} to use the default shared preferences.
      * @param key The preference key to be saved or modified.
      * @param value The value for the preference.
+     * @param removeOnNull {@code true} to remove key if the value is {@code null}.
      *
      * @see #getSharedPreferences(String)
+     * @see #delete(String)
+     * @see SharedPreferences.Editor#putStringSet(String, Set)
      */
-    public void saveStringSet(@Nullable String preferences, 
-            @Nullable String key, @Nullable Set<String> value) {
+    public void saveStringSet(@Nullable String preferences, @Nullable String key,
+            @Nullable Set<String> value, boolean removeOnNull) {
         if (key == null) {
             return;
         }
-        
-        getSharedPreferences(preferences).edit().putStringSet(key, value).apply();
+
+        if (removeOnNull && value == null) {
+            delete(preferences, key);
+        } else {
+            getSharedPreferences(preferences).edit().putStringSet(key, value).apply();
+        }
+    }
+
+    /**
+     * Save a {@literal Set<String>} in the supplied preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param preferences The shared preferences to be used.
+     *                    <p>Set {@code null} to use the default shared preferences.
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     *
+     * @see #saveStringSet(String, String, Set, boolean)
+     */
+    public void saveStringSet(@Nullable String preferences,
+            @Nullable String key, @Nullable Set<String> value) {
+        saveStringSet(preferences, key, value, false);
+    }
+
+    /**
+     * Save a {@literal Set<String>} in the default preferences editor and call
+     * {@link SharedPreferences.Editor#apply()} to apply changes back from this editor.
+     *
+     * @param key The preference key to be saved or modified.
+     * @param value The value for the preference.
+     * @param removeOnNull {@code true} to remove key if the value is {@code null}.
+     *
+     * @see #saveStringSet(String, String, Set, boolean)
+     */
+    public void saveStringSet(@Nullable String key,
+            @Nullable Set<String> value, boolean removeOnNull) {
+        saveStringSet(null, key, value, removeOnNull);
     }
 
     /**
@@ -280,7 +355,7 @@ public class DynamicPreferences {
      * @param key The preference key to be saved or modified.
      * @param value The value for the preference.
      *
-     * @see #getSharedPreferences(String)
+     * @see #saveStringSet(String, String, Set)
      */
     public void saveStringSet(@Nullable String key, @Nullable Set<String> value) {
         saveStringSet(null, key, value);
@@ -299,6 +374,7 @@ public class DynamicPreferences {
      *         that is not a {@code boolean}.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#getBoolean(String, boolean)
      */
     public boolean load(@Nullable String preferences, @Nullable String key, boolean value) {
         if (key == null) {
@@ -318,7 +394,7 @@ public class DynamicPreferences {
      *         <p>Throws {@link ClassCastException} if there is a preference with this name
      *         that is not a {@code boolean}.
      *
-     * @see #getSharedPreferences(String)
+     * @see #load(String, String, boolean)
      */
     public boolean load(@Nullable String key, boolean value) {
         return load(null, key, value);
@@ -337,12 +413,13 @@ public class DynamicPreferences {
      *         that is not an {@code integer}.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#getInt(String, int)
      */
     public int load(@Nullable String preferences, @Nullable String key, int value) {
         if (key == null) {
             return value;
         }
-        
+
         return getSharedPreferences(preferences).getInt(key, value);
     }
 
@@ -356,7 +433,7 @@ public class DynamicPreferences {
      *         <p>Throws {@link ClassCastException} if there is a preference with this name
      *         that is not an {@code integer}.
      *
-     * @see #getSharedPreferences(String)
+     * @see #load(String, String, int)
      */
     public int load(@Nullable String key, int value) {
         return load(null, key, value);
@@ -375,12 +452,13 @@ public class DynamicPreferences {
      *         that is not a {@code float}.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#getFloat(String, float)
      */
     public float load(@Nullable String preferences, @Nullable String key, float value) {
         if (key == null) {
             return value;
         }
-        
+
         return getSharedPreferences(preferences).getFloat(key, value);
     }
 
@@ -394,7 +472,7 @@ public class DynamicPreferences {
      *         <p>Throws {@link ClassCastException} if there is a preference with this name
      *         that is not a {@code float}.
      *
-     * @see #getSharedPreferences(String)
+     * @see #load(String, String, float)
      */
     public float load(@Nullable String key, float value) {
         return load(null, key, value);
@@ -413,6 +491,7 @@ public class DynamicPreferences {
      *         that is not a {@code long}.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#getLong(String, long)
      */
     public long load(@Nullable String preferences, @Nullable String key, long value) {
         if (key == null) {
@@ -432,7 +511,7 @@ public class DynamicPreferences {
      *         <p>Throws {@link ClassCastException} if there is a preference with this name
      *         that is not a {@code long}.
      *
-     * @see #getSharedPreferences(String)
+     * @see ##load(String, String, long)
      */
     public long load(@Nullable String key, long value) {
         return load(null, key, value);
@@ -451,13 +530,14 @@ public class DynamicPreferences {
      *         that is not a {@link String}.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#getString(String, String)
      */
-    public @Nullable String load(@Nullable String preferences, 
+    public @Nullable String load(@Nullable String preferences,
             @Nullable String key, @Nullable String value) {
         if (key == null) {
             return value;
         }
-        
+
         return getSharedPreferences(preferences).getString(key, value);
     }
 
@@ -471,7 +551,7 @@ public class DynamicPreferences {
      *         <p>Throws {@link ClassCastException} if there is a preference with this name
      *         that is not a {@link String}.
      *
-     * @see #getSharedPreferences(String)
+     * @see #load(String, String, String)
      */
     public @Nullable String load(@Nullable String key, @Nullable String value) {
         return load(null, key, value);
@@ -490,13 +570,14 @@ public class DynamicPreferences {
      *         that is not a {@literal Set<String>}.
      *
      * @see #getSharedPreferences(String)
+     * @see SharedPreferences.Editor#getStringSet(String, Set)
      */
     public @Nullable Set<String> loadStringSet(@Nullable String preferences,
             @Nullable String key, @Nullable Set<String> value) {
         if (key == null) {
             return value;
         }
-        
+
         return getSharedPreferences(preferences).getStringSet(key, value);
     }
 
@@ -510,7 +591,7 @@ public class DynamicPreferences {
      *         <p>Throws {@link ClassCastException} if there is a preference with this name
      *         that is not a {@literal Set<String>}.
      *
-     * @see #getSharedPreferences(String)
+     * @see #loadStringSet(String, String, Set)
      */
     public @Nullable Set<String> loadStringSet(@Nullable String key, @Nullable Set<String> value) {
         return loadStringSet(null, key, value);
