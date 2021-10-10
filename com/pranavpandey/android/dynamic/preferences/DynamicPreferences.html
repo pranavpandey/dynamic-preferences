@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":10,"i8":9,"i9":9,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":10,"i8":9,"i9":9,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -342,6 +342,17 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#save(java.lang.String,java.lang.String,T,boolean)">save</a></span>&#8203;(java.lang.String&nbsp;preferences,
+    java.lang.String&nbsp;key,
+    T&nbsp;value,
+    boolean&nbsp;removeOnNull)</code></th>
+<td class="colLast">
+<div class="block">Save a preference value in the supplied preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#save(java.lang.String,T)">save</a></span>&#8203;(java.lang.String&nbsp;key,
     T&nbsp;value)</code></th>
 <td class="colLast">
@@ -349,7 +360,17 @@ extends java.lang.Object</pre>
  <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#save(java.lang.String,T,boolean)">save</a></span>&#8203;(java.lang.String&nbsp;key,
+    T&nbsp;value,
+    boolean&nbsp;removeOnNull)</code></th>
+<td class="colLast">
+<div class="block">Save a preference value in the supplied preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveStringSet(java.lang.String,java.lang.String,java.util.Set)">saveStringSet</a></span>&#8203;(java.lang.String&nbsp;preferences,
              java.lang.String&nbsp;key,
@@ -359,10 +380,31 @@ extends java.lang.Object</pre>
  <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveStringSet(java.lang.String,java.lang.String,java.util.Set,boolean)">saveStringSet</a></span>&#8203;(java.lang.String&nbsp;preferences,
+             java.lang.String&nbsp;key,
+             java.util.Set&lt;java.lang.String&gt;&nbsp;value,
+             boolean&nbsp;removeOnNull)</code></th>
+<td class="colLast">
+<div class="block">Save a Set&lt;String&gt; in the supplied preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+</td>
+</tr>
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveStringSet(java.lang.String,java.util.Set)">saveStringSet</a></span>&#8203;(java.lang.String&nbsp;key,
              java.util.Set&lt;java.lang.String&gt;&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Save a Set&lt;String&gt; in the default preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+</td>
+</tr>
+<tr id="i29" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveStringSet(java.lang.String,java.util.Set,boolean)">saveStringSet</a></span>&#8203;(java.lang.String&nbsp;key,
+             java.util.Set&lt;java.lang.String&gt;&nbsp;value,
+             boolean&nbsp;removeOnNull)</code></th>
 <td class="colLast">
 <div class="block">Save a Set&lt;String&gt; in the default preferences editor and call
  <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
@@ -478,7 +520,8 @@ public&nbsp;<a href="https://developer.android.com/reference/android/content/Sha
                     <p>Set <code>null</code> to use the default shared preferences.</dd>
 <dd><code>key</code> - The preference key to remove.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#remove(java.lang.String)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.remove(String)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -495,7 +538,7 @@ public&nbsp;<a href="https://developer.android.com/reference/android/content/Sha
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - The preference key to remove.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#delete(java.lang.String,java.lang.String)"><code>delete(String, String)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -531,7 +574,8 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
 <dd><code>preferences</code> - The preferences to be deleted.
                     <p>Set <code>null</code> to delete the default shared preferences.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#clear()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.clear()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -567,6 +611,43 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
 </dl>
 </li>
 </ul>
+<a id="save(java.lang.String,java.lang.String,java.lang.Object,boolean)">
+<!--   -->
+</a><a id="save(java.lang.String,java.lang.String,T,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>save</h4>
+<pre class="methodSignature">public&nbsp;&lt;T&gt;&nbsp;void&nbsp;save&#8203;(@Nullable
+                     java.lang.String&nbsp;preferences,
+                     @Nullable
+                     java.lang.String&nbsp;key,
+                     @Nullable
+                     T&nbsp;value,
+                     boolean&nbsp;removeOnNull)</pre>
+<div class="block">Save a preference value in the supplied preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The type of shared preference.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>preferences</code> - The shared preferences to be used.
+                    <p>Set <code>null</code> to use the default shared preferences.</dd>
+<dd><code>key</code> - The preference key to be saved or modified.</dd>
+<dd><code>value</code> - The value for the preference.</dd>
+<dd><code>removeOnNull</code> - <code>true</code> to remove key if the value is <code>null</code>.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="#delete(java.lang.String)"><code>delete(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#putBoolean(java.lang.String,boolean)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.putBoolean(String, boolean)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#putInt(java.lang.String,int)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.putInt(String, int)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#putFloat(java.lang.String,float)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.putFloat(String, float)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#putLong(java.lang.String,long)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.putLong(String, long)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#putString(java.lang.String,java.lang.String)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.putString(String, String)</code></a></dd>
+</dl>
+</li>
+</ul>
 <a id="save(java.lang.String,java.lang.String,java.lang.Object)">
 <!--   -->
 </a><a id="save(java.lang.String,java.lang.String,T)">
@@ -592,12 +673,34 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
 <dd><code>key</code> - The preference key to be saved or modified.</dd>
 <dd><code>value</code> - The value for the preference.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
-<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getBoolean(java.lang.String,boolean)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getBoolean(String, boolean)</code></a>, 
-<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getInt(java.lang.String,int)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getInt(String, int)</code></a>, 
-<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getFloat(java.lang.String,float)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getFloat(String, float)</code></a>, 
-<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getLong(java.lang.String,long)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getLong(String, long)</code></a>, 
-<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getString(java.lang.String,java.lang.String)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getString(String, String)</code></a></dd>
+<dd><a href="#save(java.lang.String,java.lang.String,T,boolean)"><code>save(String, String, Object, boolean)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="save(java.lang.String,java.lang.Object,boolean)">
+<!--   -->
+</a><a id="save(java.lang.String,T,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>save</h4>
+<pre class="methodSignature">public&nbsp;&lt;T&gt;&nbsp;void&nbsp;save&#8203;(@Nullable
+                     java.lang.String&nbsp;key,
+                     @Nullable
+                     T&nbsp;value,
+                     boolean&nbsp;removeOnNull)</pre>
+<div class="block">Save a preference value in the supplied preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The type of shared preference.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - The preference key to be saved or modified.</dd>
+<dd><code>value</code> - The value for the preference.</dd>
+<dd><code>removeOnNull</code> - <code>true</code> to remove key if the value is <code>null</code>.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#save(java.lang.String,java.lang.String,T,boolean)"><code>save(String, String, Object, boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -622,7 +725,36 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
 <dd><code>key</code> - The preference key to be saved or modified.</dd>
 <dd><code>value</code> - The value for the preference.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#save(java.lang.String,java.lang.String,T)"><code>save(String, String, Object)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="saveStringSet(java.lang.String,java.lang.String,java.util.Set,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveStringSet</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;saveStringSet&#8203;(@Nullable
+                          java.lang.String&nbsp;preferences,
+                          @Nullable
+                          java.lang.String&nbsp;key,
+                          @Nullable
+                          java.util.Set&lt;java.lang.String&gt;&nbsp;value,
+                          boolean&nbsp;removeOnNull)</pre>
+<div class="block">Save a Set&lt;String&gt; in the supplied preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>preferences</code> - The shared preferences to be used.
+                    <p>Set <code>null</code> to use the default shared preferences.</dd>
+<dd><code>key</code> - The preference key to be saved or modified.</dd>
+<dd><code>value</code> - The value for the preference.</dd>
+<dd><code>removeOnNull</code> - <code>true</code> to remove key if the value is <code>null</code>.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="#delete(java.lang.String)"><code>delete(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#putStringSet(java.lang.String,java.util.Set)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.putStringSet(String, Set)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -647,7 +779,30 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
 <dd><code>key</code> - The preference key to be saved or modified.</dd>
 <dd><code>value</code> - The value for the preference.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#saveStringSet(java.lang.String,java.lang.String,java.util.Set,boolean)"><code>saveStringSet(String, String, Set, boolean)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="saveStringSet(java.lang.String,java.util.Set,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveStringSet</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;saveStringSet&#8203;(@Nullable
+                          java.lang.String&nbsp;key,
+                          @Nullable
+                          java.util.Set&lt;java.lang.String&gt;&nbsp;value,
+                          boolean&nbsp;removeOnNull)</pre>
+<div class="block">Save a Set&lt;String&gt; in the default preferences editor and call
+ <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html?is-external=true#apply()" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.Editor.apply()</code></a> to apply changes back from this editor.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - The preference key to be saved or modified.</dd>
+<dd><code>value</code> - The value for the preference.</dd>
+<dd><code>removeOnNull</code> - <code>true</code> to remove key if the value is <code>null</code>.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#saveStringSet(java.lang.String,java.lang.String,java.util.Set,boolean)"><code>saveStringSet(String, String, Set, boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -668,7 +823,7 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
 <dd><code>key</code> - The preference key to be saved or modified.</dd>
 <dd><code>value</code> - The value for the preference.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#saveStringSet(java.lang.String,java.lang.String,java.util.Set)"><code>saveStringSet(String, String, Set)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -695,7 +850,8 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>boolean</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getBoolean(java.lang.String,boolean)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getBoolean(String, boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -718,7 +874,7 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>boolean</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#load(java.lang.String,java.lang.String,boolean)"><code>load(String, String, boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -745,7 +901,8 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not an <code>integer</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getInt(java.lang.String,int)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getInt(String, int)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -768,7 +925,7 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not an <code>integer</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#load(java.lang.String,java.lang.String,int)"><code>load(String, String, int)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -795,7 +952,8 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>float</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getFloat(java.lang.String,float)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getFloat(String, float)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -818,7 +976,7 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>float</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#load(java.lang.String,java.lang.String,float)"><code>load(String, String, float)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -845,7 +1003,8 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>long</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getLong(java.lang.String,long)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getLong(String, long)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -868,7 +1027,7 @@ public&nbsp;java.lang.String&nbsp;getDefaultSharedPreferencesName()</pre>
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>long</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#load(java.lang.String,java.lang.String,long)"><code>load(String, String, long)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -897,7 +1056,8 @@ public&nbsp;java.lang.String&nbsp;load&#8203;(@Nullable
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>String</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getString(java.lang.String,java.lang.String)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getString(String, String)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -922,7 +1082,7 @@ public&nbsp;java.lang.String&nbsp;load&#8203;(@Nullable
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a <code>String</code>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#load(java.lang.String,java.lang.String,java.lang.String)"><code>load(String, String, String)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -951,7 +1111,8 @@ public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;loadStringSet&#8203;(@Nul
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a Set&lt;String&gt;.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a>, 
+<a href="https://developer.android.com/reference/android/content/SharedPreferences.html?is-external=true#getStringSet(java.lang.String,java.util.Set)" title="class or interface in android.content" class="externalLink"><code>SharedPreferences.getStringSet(String, Set)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -976,7 +1137,7 @@ public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;loadStringSet&#8203;(@Nul
          <p>Throws <code>ClassCastException</code> if there is a preference with this name
          that is not a Set&lt;String&gt;.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="#getSharedPreferences(java.lang.String)"><code>getSharedPreferences(String)</code></a></dd>
+<dd><a href="#loadStringSet(java.lang.String,java.lang.String,java.util.Set)"><code>loadStringSet(String, String, Set)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -1007,7 +1168,7 @@ public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;loadStringSet&#8203;(@Nul
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><h5>null</h5></div>
+<div class="aboutLanguage"><h5>2.2.0</h5></div>
 </div>
 <div class="subNav">
 <ul class="navList" id="allclasses_navbar_bottom">
