@@ -10,20 +10,20 @@ A library to manage shared preferences on Android 4.0 (API 14) and above.
 
 > It uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your project to AndroidX.
 <br/>Since v2.1.0, it is dependent on Java 8 due to the dependency on
-[Dynamic Utils](https://github.com/pranavpandey/dynamic-utils).
+[Dynamic Utils][dynamic-utils].
 
 ---
 
 ## Contents
 
-- [Installation](https://github.com/pranavpandey/dynamic-preferences#installation)
-- [Usage](https://github.com/pranavpandey/dynamic-preferences#usage)
-    - [Initialize](https://github.com/pranavpandey/dynamic-preferences#initialize)
-    - [Save](https://github.com/pranavpandey/dynamic-preferences#save)
-    - [Load](https://github.com/pranavpandey/dynamic-preferences#load)
-    - [Delete](https://github.com/pranavpandey/dynamic-preferences#delete)
-    - [Dependency](https://github.com/pranavpandey/dynamic-preferences#dependency)
-- [License](https://github.com/pranavpandey/dynamic-preferences#license)
+- [Installation](#installation)
+- [Usage](#usage)
+    - [Initialize](#initialize)
+    - [Save](#save)
+    - [Load](#load)
+    - [Delete](#delete)
+    - [Dependency](#dependency)
+- [License](#license)
 
 ---
 
@@ -101,8 +101,8 @@ DynamicPreferences.getInstance().deleteSharedPreference(preferences);
 
 ### Dependency
 
-It depends on the [dynamic-utils](https://github.com/pranavpandey/dynamic-utils) to perform
-various internal operations. So, its functions can also be used to perform other useful operations.
+It depends on the [dynamic-utils][dynamic-utils] to perform various internal operations. 
+So, its functions can also be used to perform other useful operations.
 
 ---
 
@@ -136,3 +136,4 @@ Pranav Pandey
 [androidx]: https://developer.android.com/jetpack/androidx
 [androidx-migrate]: https://developer.android.com/jetpack/androidx/migrate
 [documentation]: https://pranavpandey.github.io/dynamic-preferences
+[dynamic-utils]: https://github.com/pranavpandey/dynamic-utils
