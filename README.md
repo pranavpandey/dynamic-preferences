@@ -42,9 +42,10 @@ dependencies {
 
 ## Usage
 
-Please read below about the various supported operations.
+It provides various methods to `save`, `load` and `delete` keys and preferences. Please read 
+below about the various supported operations.
 
-> For complete reference, please read the [documentation][documentation].
+> For a complete reference, please read the [documentation][documentation].
 
 ### Initialize
 
