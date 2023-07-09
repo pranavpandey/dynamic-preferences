@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.pranavpandey.android.dynamic.preferences","l":"DynamicPreferences"}]
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.pranavpandey.android.dynamic.preferences","l":"DynamicPreferences"}];updateSearchResults();

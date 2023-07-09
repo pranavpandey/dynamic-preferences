@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.pranavpandey.android.dynamic.preferences"}]
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.pranavpandey.android.dynamic.preferences"}];updateSearchResults();
