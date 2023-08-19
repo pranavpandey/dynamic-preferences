@@ -11,6 +11,7 @@ A library to manage shared preferences on Android 4.0 (API 14) and above.
 > It uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your project to AndroidX.
 <br/>Since v2.1.0, it is dependent on Java 8 due to the dependency on
 [Dynamic Utils][dynamic-utils].
+<br/>Since v2.3.1, it is targeting Java 17 to provide maximum compatibility.
 
 ---
 
