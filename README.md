@@ -1,4 +1,4 @@
-<img src="./graphics/icon.png" width="160" height="160" align="right" hspace="20">
+<img src="./graphics/icon.png" height="160">
 
 # Dynamic Preferences
 
@@ -6,8 +6,9 @@
 [![Build Status](https://travis-ci.org/pranavpandey/dynamic-preferences.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-preferences)
 [![Release](https://img.shields.io/maven-central/v/com.pranavpandey.android/dynamic-preferences)](https://search.maven.org/artifact/com.pranavpandey.android/dynamic-preferences)
 
-A library to manage shared preferences on Android 4.0 (API 14) and above.
+**A library to manage shared preferences on Android 4.0 (API 14) and above.**
 
+> [!IMPORTANT]
 > It uses [AndroidX][androidx] so, first [migrate][androidx-migrate] your project to AndroidX.
 <br/>Since v2.1.0, it is dependent on Java 8 due to the dependency on
 [Dynamic Utils][dynamic-utils].
