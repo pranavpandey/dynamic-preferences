@@ -3,7 +3,6 @@
 # Dynamic Preferences
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Build Status](https://travis-ci.org/pranavpandey/dynamic-preferences.svg?branch=master)](https://travis-ci.org/pranavpandey/dynamic-preferences)
 [![Release](https://img.shields.io/maven-central/v/com.pranavpandey.android/dynamic-preferences)](https://search.maven.org/artifact/com.pranavpandey.android/dynamic-preferences)
 
 **A library to manage shared preferences on Android 4.0 (API 14) and above.**
@@ -14,6 +13,7 @@
 [Dynamic Utils][dynamic-utils].
 <br/>Since v2.3.1, it is targeting Java 17 to provide maximum compatibility.
 <br/>Since v2.4.0, the minimum SDK is Android 4.4 (API 19) to comply with the latest policies.
+<br/>Since v2.4.1, the minimum SDK is Android 5.0 (API 21) to comply with the latest policies.
 
 ---
 
