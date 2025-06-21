@@ -67,8 +67,8 @@ ext {
     mavenDir = 'com/pranavpandey/android'
     mavenArtifactId = 'dynamic-preferences'
     mavenInceptionYear = '2019'
-    mavenVersion = '2.4.0'
-    mavenVersionCode = 15
+    mavenVersion = '2.4.1'
+    mavenVersionCode = 16
 
     developerId = 'pranavpandey'
     developerName = 'Pranav Pandey'
@@ -85,8 +85,8 @@ ext {
     ext["signing.password"] = ''
     ext["signing.secretKeyRingFile"] = ''
 
-    ossrhUsername = ''
-    ossrhPassword = ''
+    sonatypeUsername = ''
+    sonatypePassword = ''
     sonatypeStagingProfileId = ''
 }
 
@@ -102,9 +102,12 @@ if (publish.exists()) {
 nexusPublishing {
     repositories {
         sonatype {
-            username = ossrhUsername
-            password = ossrhPassword
+            username = sonatypeUsername
+            password = sonatypePassword
             stagingProfileId = sonatypeStagingProfileId
+            nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
+            snapshotRepositoryUrl.set(
+                    uri("https://central.sonatype.com/repository/maven-snapshots/"))
         }
     }
 }
